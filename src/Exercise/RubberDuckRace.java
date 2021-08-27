@@ -2,7 +2,6 @@ package Exercise;
 
 import java.util.*;
 
-
 public class RubberDuckRace {
 
     private List<Queue<RubberDuck>> allQueues;
@@ -20,7 +19,7 @@ public class RubberDuckRace {
 
     public void generateQueues(int n){
         for (int i = 0; i < n; i++) {
-            allQueues.add(new Queue<RubberDuck>(n));
+            allQueues.add(new Queue<>(n));
         }
     }
 
@@ -32,7 +31,6 @@ public class RubberDuckRace {
             for (int i = 0; i < counter-1; i++) {
                 newQueues.add(new Queue<RubberDuck>(n-1));
             }
-
             for (int i = 0; i < newQueues.size(); i++) {
                 while(!newQueues.get(i).isFull()){
 
@@ -42,7 +40,6 @@ public class RubberDuckRace {
                     }
                 }
             }
-
             counter--;
             allQueues = newQueues;
         }
@@ -59,7 +56,6 @@ public class RubberDuckRace {
             RubberDuck tmpDuck = new RubberDuck(r.nextInt(n*n)+1);
             tmpSet.add(tmpDuck);
         }
-        int ranNumber =0;
         Iterator it = tmpSet.iterator();
             while(it.hasNext()){
                 allQueues.get(r.nextInt(n)).addElementToQueue((RubberDuck) it.next());
